@@ -18,7 +18,13 @@ connectDB();
 const app = express();
 
 //middelwares
-app.use(cors());
+
+app.use(
+  cors({
+    origin: process.env.URI,
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 
